@@ -1,42 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Birthday Laoshiii</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Laoshiii</title>
+
+<style>
+@keyframes popUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.show {
+  display: block !important;
+  animation: popUp 0.6s ease-out;
+}
+</style>
 </head>
-<body style="background-color:#C8A2C8
-;">
-     <center>
-    
-     <div style="
-      background-color: lightyellow;
-      padding: 20px;
-      border-radius: 15px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-      font-family:'Papyrus', cursive;font-weight: bold;"
-    ">
-  Tuesday, 3 February 2026 
-    </div>
-    
-    <h2> </h2>
-    <p style="font-family: 'Papyrus', cursive;">Specially for: <strong>Madihah Laoshi,</strong> yang disayangi</p>
-    <p style="font-family: 'Papyrus', cursive;">Tekan ni Laoshii!! 👇🏻 </p>
-         
-    <button onclick="document.getElementById('message').style.display = 'block';">✉️</button>
-         
-    <div id="message" style=" 
-      display:none;
-      font-family:'Papyrus';  
-      background-color: lightyellow;
-      padding: 20px;
-      border-radius: 15px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);      
-      border: 2px dotted black;
-        ">
-        Happy Birthday Laoshii, 
-    </div>
-         
-    </center>
+
+<body style="background-color:#C8A2C8;">
+<center>
+
+<div style="
+  background-color: lightyellow;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  font-family:'Papyrus', cursive;
+  font-weight: bold;
+">
+  Tuesday, 3 February 2026
+</div>
+
+<p style="font-family:'Papyrus', cursive;">
+  Specially for: <strong>Madihah Laoshi,</strong> yang disayangi
+</p>
+
+<p style="font-family:'Papyrus', cursive;">
+  Tekan ni Laoshii!! 👇🏻
+</p>
+
+<button onclick="showMsg()">✉️</button>
+
+<div id="message" style="
+  display:none;
+  font-family:'Papyrus', cursive;
+  background-color: lightyellow;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  border: 2px dotted black;
+  margin-top: 15px;
+">
+  Happy Birthday Laoshii 💜  
+</div>
+
+<script>
+function showMsg() {
+  document.getElementById("message").classList.add("show");
+}
+</script>
+
+</center>
 </body>
 </html>
