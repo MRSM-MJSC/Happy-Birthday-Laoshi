@@ -8,31 +8,51 @@
     body {
         margin: 0;
         height: 100vh;
+        font-family: 'Segoe UI', sans-serif;
+        background: linear-gradient(135deg, #ff9a9e, #fad0c4);
         display: flex;
         justify-content: center;
         align-items: center;
-        background: linear-gradient(135deg, #ff9a9e, #fad0c4);
-        font-family: 'Segoe UI', sans-serif;
         overflow: hidden;
     }
 
+    /* INTRO SCREEN */
+    .intro {
+        text-align: center;
+        cursor: pointer;
+        animation: fadeIn 1s ease;
+    }
+
+    .intro img {
+        width: 200px;
+        animation: bounce 2s infinite;
+    }
+
+    .intro h1 {
+        margin-top: 15px;
+        color: white;
+        font-size: 2.2em;
+        text-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+
+    /* BIRTHDAY CARD */
     .card {
+        display: none;
         background: white;
         padding: 30px 40px;
         border-radius: 20px;
         text-align: center;
         box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-        animation: pop 1s ease;
+        animation: pop 0.8s ease;
     }
 
-    h1 {
-        font-size: 2.5em;
-        margin: 0;
+    .card h2 {
         color: #ff4d6d;
+        font-size: 2.3em;
+        margin: 0;
     }
 
-    p {
-        font-size: 1.1em;
+    .card p {
         color: #555;
         margin-top: 10px;
     }
@@ -42,9 +62,20 @@
         color: #333;
     }
 
+    /* ANIMATIONS */
+    @keyframes bounce {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-15px); }
+    }
+
     @keyframes pop {
         0% { transform: scale(0.5); opacity: 0; }
         100% { transform: scale(1); opacity: 1; }
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
     }
 
     .balloon {
@@ -62,23 +93,39 @@
 </head>
 <body>
 
-<div class="card">
+<!-- INTRO -->
+<div class="intro" id="intro">
+    <img src="cake.png" alt="Cake">
     <h1>🎉 Happy Birthday 🎂</h1>
+    <p style="color:white;">Tap anywhere 👆</p>
+</div>
+
+<!-- CARD -->
+<div class="card" id="card">
+    <h2>Happy Birthday 🎂</h2>
     <p>To <span class="name">[Nama Dia]</span></p>
-    <p>Semoga panjang umur, murah rezeki,  
-    and semua impian jadi kenyataan ✨</p>
+    <p>Semoga panjang umur, murah rezeki  
+    dan sentiasa bahagia ✨</p>
 </div>
 
 <script>
-    const emojis = ["🎈","🎉","🎂","💖","✨"];
-    for(let i = 0; i < 15; i++){
-        const b = document.createElement("div");
-        b.className = "balloon";
-        b.style.left = Math.random() * 100 + "vw";
-        b.style.animationDuration = (4 + Math.random() * 4) + "s";
-        b.innerText = emojis[Math.floor(Math.random() * emojis.length)];
-        document.body.appendChild(b);
-    }
+    const intro = document.getElementById("intro");
+    const card = document.getElementById("card");
+
+    intro.addEventListener("click", () => {
+        intro.style.display = "none";
+        card.style.display = "block";
+
+        const emojis = ["🎈","🎉","🎂","💖","✨"];
+        for(let i = 0; i < 15; i++){
+            const b = document.createElement("div");
+            b.className = "balloon";
+            b.style.left = Math.random() * 100 + "vw";
+            b.style.animationDuration = (4 + Math.random() * 4) + "s";
+            b.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+            document.body.appendChild(b);
+        }
+    });
 </script>
 
 </body>
