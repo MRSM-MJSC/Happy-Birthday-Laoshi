@@ -2,79 +2,84 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<title>Happy Birthday 🎉</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Birthday Laoshiii</title>
-
 <style>
-body{
-  background:#C8A2C8;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  height:100vh;
-  font-family:'Papyrus', cursive;
-}
+    body {
+        margin: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+        font-family: 'Segoe UI', sans-serif;
+        overflow: hidden;
+    }
 
-/* Envelope */
-.envelope{
-  position:relative;
-  width:260px;
-  height:180px;
-  background:#f5deb3;
-  border-radius:10px;
-  cursor:pointer;
-  overflow:hidden;
-}
+    .card {
+        background: white;
+        padding: 30px 40px;
+        border-radius: 20px;
+        text-align: center;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        animation: pop 1s ease;
+    }
 
-/* Top flap */
-.envelope::before{
-  content:"";
-  position:absolute;
-  top:0;
-  left:0;
-  width:0;
-  height:0;
-  border-left:130px solid transparent;
-  border-right:130px solid transparent;
-  border-top:90px solid #e6cfa7;
-  transform-origin:top;
-  transition:0.6s;
-}
+    h1 {
+        font-size: 2.5em;
+        margin: 0;
+        color: #ff4d6d;
+    }
 
-/* Paper */
-.paper{
-  position:absolute;
-  bottom:-160px;
-  left:20px;
-  width:220px;
-  height:160px;
-  background:lightyellow;
-  border-radius:10px;
-  padding:15px;
-  box-shadow:0 4px 8px rgba(0,0,0,0.2);
-  transition:0.6s;
-  text-align:center;
-}
+    p {
+        font-size: 1.1em;
+        color: #555;
+        margin-top: 10px;
+    }
 
-/* Open state */
-.envelope.open::before{
-  transform:rotateX(180deg);
-}
+    .name {
+        font-weight: bold;
+        color: #333;
+    }
 
-.envelope.open .paper{
-  bottom:10px;
-}
+    @keyframes pop {
+        0% { transform: scale(0.5); opacity: 0; }
+        100% { transform: scale(1); opacity: 1; }
+    }
+
+    .balloon {
+        position: absolute;
+        bottom: -100px;
+        font-size: 2em;
+        animation: float 6s infinite ease-in;
+    }
+
+    @keyframes float {
+        0% { transform: translateY(0); opacity: 1; }
+        100% { transform: translateY(-120vh); opacity: 0; }
+    }
 </style>
 </head>
-
 <body>
 
-<div class="envelope" onclick="this.classList.toggle('open')">
-  <div class="paper">
-    <p><strong>Happy Birthday Laoshiii 🎉</strong></p>
-    <p>Semoga sentiasa happy, sihat, dan disayangi 🤍</p>
-  </div>
+<div class="card">
+    <h1>🎉 Happy Birthday 🎂</h1>
+    <p>To <span class="name">[Nama Dia]</span></p>
+    <p>Semoga panjang umur, murah rezeki,  
+    and semua impian jadi kenyataan ✨</p>
 </div>
+
+<script>
+    const emojis = ["🎈","🎉","🎂","💖","✨"];
+    for(let i = 0; i < 15; i++){
+        const b = document.createElement("div");
+        b.className = "balloon";
+        b.style.left = Math.random() * 100 + "vw";
+        b.style.animationDuration = (4 + Math.random() * 4) + "s";
+        b.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+        document.body.appendChild(b);
+    }
+</script>
 
 </body>
 </html>
